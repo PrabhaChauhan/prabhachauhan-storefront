@@ -223,6 +223,55 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
 
+  const languageWrapper = document.createElement('div');
+
+  languageWrapper.className = 'language-wrapper nav-tools-wrapper';
+
+  languageWrapper.innerHTML = `
+   <div class="notranslate">
+    <select class="language-selector">
+      <option value="en">English</option>
+      <option value="fr">French</option>
+      <option value="es">Spanish</option>
+    </select>
+  </div>
+  <div id="google_translate_element" style="display:none"></div>
+  `;
+
+  languageWrapper.classList.add('notranslate');
+
+  navTools.append(languageWrapper);
+
+  const languageSelector =
+    languageWrapper.querySelector('.language-selector');
+
+  languageSelector.value =
+    localStorage.getItem('site-language') || 'en';
+  
+  const savedLang =
+    localStorage.getItem('site-language');
+  
+  if (savedLang && savedLang !== 'en') {
+    applyGoogleLanguage(savedLang);
+  }
+
+  languageSelector.addEventListener('change', () => {
+    const lang = languageSelector.value;
+  
+    localStorage.setItem('site-language', lang);
+  
+    if (lang === 'en') {
+      document.cookie =
+        'googtrans=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+      location.reload();
+      return;
+    }
+  
+    applyGoogleLanguage(lang);
+  });
+
+  loadGoogleTranslate();
+
   /** Wishlist */
   const wishlist = document.createRange().createContextualFragment(`
      <div class="wishlist-wrapper nav-tools-wrapper">
@@ -546,5 +595,43 @@ export default async function decorate(block) {
   const isAuthenticated = events.lastPayload('authenticated');
   if (isAuthenticated && getConfigValue('commerce-companies-enabled') === true) {
     await (await import('./renderCompanySwitcher.js')).default(navTools);
+  }
+
+  function loadGoogleTranslate() {
+    if (window.google?.translate) {
+      return;
+    }
+
+    window.googleTranslateElementInit = () => {
+      new window.google.translate.TranslateElement(
+        {
+          pageLanguage: 'en',
+          includedLanguages: 'fr,es',
+          autoDisplay: false,
+          layout: 0,
+        },
+        'google_translate_element',
+      );
+    };
+  
+    const script = document.createElement('script');
+    script.src =
+      'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+  
+    document.body.appendChild(script);
+  }
+
+  function applyGoogleLanguage(lang) {
+    const interval = setInterval(() => {
+      const googleSelect =
+        document.querySelector('.goog-te-combo');
+  
+      if (googleSelect) {
+        googleSelect.value = lang;
+        googleSelect.dispatchEvent(new Event('change'));
+  
+        clearInterval(interval);
+      }
+    }, 300);
   }
 }

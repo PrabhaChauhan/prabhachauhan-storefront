@@ -857,3 +857,40 @@ body:has(.seller-assisted-buying-banner) {
   }
 }
 
+/* Hide top Google translate banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+/* Hide Google translate widget */
+.goog-te-gadget,
+.goog-te-gadget-simple,
+#google_translate_element {
+  display: none !important;
+}
+
+/* Hide Google branding tooltip */
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+
+.goog-text-highlight {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Hide translate iframe */
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+.notranslate {
+  translate: no;
+}
+.skiptranslate iframe {
+  display: none !important;
+}
