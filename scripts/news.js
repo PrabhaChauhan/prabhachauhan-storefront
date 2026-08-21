@@ -129,7 +129,7 @@ function emitArticleJsonLd() {
   setJsonLd(breadcrumb, 'news-breadcrumb');
 }
 
-export function decoratenews(main) {
+export function decorateNews(main) {
   if (getMetadata('template') !== 'news-article') return;
   decorateByline(main);
   emitArticleJsonLd();
