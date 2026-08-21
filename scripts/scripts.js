@@ -22,7 +22,7 @@ import {
   IS_DA,
 } from './commerce.js';
 
-import { decorateNews } from './blog.js';
+import { decorateNews } from './news.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
