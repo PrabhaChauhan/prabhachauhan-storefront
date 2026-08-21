@@ -22,7 +22,7 @@ import {
   IS_DA,
 } from './commerce.js';
 
-import { decorateBlog } from './blog.js';
+import { decorateNews } from './blog.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -151,7 +151,7 @@ async function loadEager(doc) {
       await initializeCommerce();
       decorateMain(main);
       applyTemplates(doc);
-      decorateBlog(main);
+      decorateNews(main);
       await loadCommerceEager();
     } catch (e) {
       console.error('Error initializing commerce configuration:', e);
