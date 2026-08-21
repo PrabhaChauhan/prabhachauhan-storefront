@@ -52,13 +52,13 @@ indices:
         select: head > meta[name="enrichment-positions"]
         values: |
           match(attribute(el, 'content'), '([^,]+)')
-  blog:
-    target: /blog-index.json
+  news:
+    target: /news-index.json
     include:
-      - 'blog/**'
+      - 'news/**'
     exclude:
-      - 'blog/tags/**'
-      - 'blog/authors/**'
+      - 'news/tags/**'
+      - 'news/authors/**'
       - 'drafts/**'
     properties:
       title:
@@ -77,12 +77,12 @@ indices:
         select: head > meta[name="template"]
         value: |
           attribute(el, 'content')
-      blogCategory:
-        select: head > meta[name="blog-category"]
+      newsCategory:
+        select: head > meta[name="news-category"]
         value: |
           attribute(el, 'content')
-      blogTags:
-        select: head > meta[name="blog-tags"]
+      newsTags:
+        select: head > meta[name="news-tags"]
         values: |
           match(attribute(el, 'content'), '([^,]+)')
       author:
