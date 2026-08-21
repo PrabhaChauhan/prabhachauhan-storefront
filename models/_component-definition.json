@@ -52,6 +52,9 @@
         },
         {
           "...": "../blocks/commerce-*/_*.json#/definitions"
+        },
+        {
+          "...": "../blocks/news-*/_*.json#/definitions"
         }
       ]
     },

@@ -29,6 +29,42 @@
           "name": "sku",
           "label": "SKU",
           "description": "Optional: Specify a product SKU for this page"
+        },
+        {
+          "component": "text",
+          "name": "template",
+          "label": "Template",
+          "description": "Page template, for example news-article or news-list"
+        },
+        {
+          "component": "text",
+          "name": "news-category",
+          "label": "news Category",
+          "description": "Primary news category used for listing filters"
+        },
+        {
+          "component": "text",
+          "name": "news-tags",
+          "label": "news Tags",
+          "description": "Comma-separated news tags"
+        },
+        {
+          "component": "text",
+          "name": "author",
+          "label": "Author",
+          "description": "Display name for the post author"
+        },
+        {
+          "component": "text",
+          "name": "author-slug",
+          "label": "Author Slug",
+          "description": "Used to link author pages under /news/authors/{slug}"
+        },
+        {
+          "component": "text",
+          "name": "publication-date",
+          "label": "Publication Date",
+          "description": "ISO date (YYYY-MM-DD) for sorting and article metadata"
         }
       ]
     }

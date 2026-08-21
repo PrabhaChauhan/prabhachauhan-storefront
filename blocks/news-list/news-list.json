@@ -1,0 +1,48 @@
+{
+    "definitions": [
+      {
+        "title": "news List",
+        "id": "news-list",
+        "model": "news-list",
+        "plugins": {
+          "da": {
+            "type": "key-value-block"
+          }
+        }
+      }
+    ],
+    "models": [
+      {
+        "id": "news-list",
+        "fields": [
+          {
+            "component": "text",
+            "name": "category",
+            "label": "Category"
+          },
+          {
+            "component": "text",
+            "name": "tag",
+            "label": "Tag"
+          },
+          {
+            "component": "text",
+            "name": "author",
+            "label": "Author"
+          },
+          {
+            "component": "text",
+            "name": "limit",
+            "label": "Limit"
+          },
+          {
+            "component": "text",
+            "name": "sort",
+            "label": "Sort",
+            "value": "publication-date:desc"
+          }
+        ]
+      }
+    ],
+    "filters": []
+  }
