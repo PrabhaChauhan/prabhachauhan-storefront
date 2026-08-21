@@ -607,6 +607,16 @@
               "type": "key-value-block"
             }
           }
+        },
+        {
+          "title": "news List",
+          "id": "news-list",
+          "model": "news-list",
+          "plugins": {
+            "da": {
+              "type": "key-value-block"
+            }
+          }
         }
       ]
     }
