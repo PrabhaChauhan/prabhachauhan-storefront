@@ -7,6 +7,7 @@ indices:
       - '/news/**'
     exclude:
       - '/drafts/**'
+      - /news/index
     properties:
       title:
         select: head > meta[property="og:title"]
