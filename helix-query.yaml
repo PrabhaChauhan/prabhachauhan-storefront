@@ -4,11 +4,11 @@ indices:
   news:
     target: /news-index.json
     include:
-      - 'news/**'
+      - '/news/**'
     exclude:
-      - 'news/tags/**'
-      - 'news/authors/**'
-      - 'drafts/**'
+      - '/news/tags/**'
+      - '/news/authors/**'
+      - '/drafts/**'
     properties:
       title:
         select: head > meta[property="og:title"]
